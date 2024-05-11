@@ -47,7 +47,6 @@ const longWords = [
   "Bruhs",
   "Buuz",
   "Buzuq",
-  "Call-with-current-continuation",
   "Cape-pondweeds",
   "Cardinalfishes",
   "Castroviejos",
@@ -166,7 +165,6 @@ const longWords = [
   "Mazaahar",
   "Melancholinesses",
   "Methylenedioxyamphetamines",
-  "Methylenedioxymethamphetamines",
   "Methylenedioxypyrovalerones",
   "Mingin'",
   "Miqras",
@@ -245,7 +243,6 @@ const longWords = [
   "Tetraacetates",
   "Tetraacetylethylenediamines",
   "Tetracyanoquinodimethanes",
-  "Tetramethylenedisulfotetramines",
   "Thick-knees",
   "Three-faces-under-a-hoods",
 ];
