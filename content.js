@@ -281,13 +281,22 @@ async function answerQuestion(syllable) {
       await writeDataInPrompt(answer);
       return;
     }
-    await writeDataInPrompt(randomWords[generateNumber(randomWords.length)]);
+    await answerRandomWord();
     return;
   }
   writeDataInHintBox(answer);
   // wait while question does not change or my turn comes
   while (!isMyTurn() && getPromptQuestion() === syllable && isJoinGameButtonHidden())
     await sleep(25);
+}
+
+async function answerRandomWord() {
+  // random words are long sentences so write them as fast as possible
+  // without drawing suspecion of bot
+  const temp = answerSpeed;
+  answerSpeed = Math.min(answerSpeed, 80);
+  await writeDataInPrompt(randomWords[generateNumber(randomWords.length)]);
+  answerSpeed = temp;
 }
 
 function getAnswer(syllable) {
