@@ -198,7 +198,7 @@ const SELECTOR_PROMPT_QUESTION = "div.middle > div.canvasArea > div.round > div"
 const SELECTOR_HINT_BOX = "div.bottom > div.round > .hint-box";
 const SELECTOR_ROUND = "div.bottom > div.round";
 const SELECTOR_JOIN_BUTTON = "div.bottom > div.seating > div.join > button[data-text='joinGame']";
-const SELECTOR_JOIN_BUTTON_CONTAINER = "div.bottom > div.seating > div.join";
+const SELECTOR_SEATING = "div.bottom > div.seating";
 const HINT_BOX_STYLE = `
 border-radius: 5px;
 background: transparent;
@@ -259,6 +259,7 @@ async function runBot() {
 }
 
 async function clickJoinButton() {
+  console.log("click join button " + isJoinGameButtonHidden());
   await sleep(10_000 * Math.random());
   const joinButton = getJoinGameButton();
   if (joinButton) joinButton.click();
@@ -269,7 +270,7 @@ function getJoinGameButton() {
 }
 
 function isJoinGameButtonHidden() {
-  return isHidden(document.querySelector(SELECTOR_JOIN_BUTTON_CONTAINER));
+  return isHidden(document.querySelector(SELECTOR_SEATING));
 }
 
 async function answerQuestion(syllable) {
