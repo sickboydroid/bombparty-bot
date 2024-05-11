@@ -110,7 +110,7 @@ function getAnswer(syllable) {
     const idx = (seed + i) % words.length;
     if (words[idx].includes(syllable)) return words[idx];
   }
-  return "wtf???";
+  return swearWords[generateNumber(swearWords.length)];
 }
 
 function getPromptQuestion() {
