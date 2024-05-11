@@ -251,7 +251,7 @@ async function answerRandomWord() {
   // random words are long sentences so write them as fast as possible
   // without drawing suspecion of bot
   const temp = answerSpeed;
-  answerSpeed = Math.min(answerSpeed, 80);
+  answerSpeed = Math.min(answerSpeed, 100);
   await writeDataInPrompt(randomWords[generateNumber(randomWords.length)]);
   answerSpeed = temp;
 }
