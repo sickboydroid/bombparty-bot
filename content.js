@@ -209,7 +209,7 @@ resize: none;
 overflow: hidden;
 `;
 let isBotRunning = false;
-let answerSpeed = 150;
+let answerSpeed = 200;
 
 chrome.runtime.onMessage.addListener(chromeMessagesListener);
 initializeHintBox();
