@@ -475,21 +475,18 @@ function isJoinGameButtonHidden() {
   return isHidden(document.querySelector(SELECTOR_SEATING));
 }
 
-let lastSyllable = null;
-
 async function answerQuestion(syllable) {
   if (syllable.length === 0) return [];
   let answer = null;
-  if (lastSyllable === syllable) answer = getAnswer(syllable, allWords);
-  else
-    answer =
-      getAnswer(syllable, longWords) ??
-      getAnswer(syllable, commonWords) ??
-      getAnswer(syllable, allWords);
-  lastSyllable = syllable;
+  while (!answer) {
+    let words = commonWords;
+    if (Math.random() > 0.5) words = longWords;
+    else if (Math.random() > 0.5) words = allWords;
+    answer = getAnswer(syllable, words);
+  }
 
   if (isMyTurn()) {
-    if (Math.random() <= 0.9) {
+    if (Math.random() <= 0.97) {
       // 90% of the time write correct answer
       await writeDataInPrompt(answer);
       return;
